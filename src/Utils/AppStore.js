@@ -1,13 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import  useReducer  from "./AppStore";
-
-
+import userReducer from "./UserSlice"; 
 const AppStore = configureStore({
+  reducer: {
+    user: userReducer,
+  },
 
-    reducer: {
-        user: useReducer,
-    },
+});
 
-})
+if (process.env.NODE_ENV === "development") {
+  window.store = AppStore;
+}
 
 export default AppStore;
