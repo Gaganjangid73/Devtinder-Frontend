@@ -25,11 +25,16 @@ const Feed = () => {
   }, []);
 
   return (
-    feed?.length > 0 ? (
-      <div className="flex flex-wrap gap-4 justify-center m-5">
-        <UserCard user={feed[5]} />
-      </div>
-    ) : null
+    (() => {
+      const users = Array.isArray(feed) ? feed : feed?.data || [];
+      return users.length > 0 ? (
+        <div className="flex flex-wrap gap-7 justify-center m-5">
+          {users.map((u, idx) => (
+            <UserCard key={u?.id || idx} user={u} />
+          ))}
+        </div>
+      ) : null;
+    })()
   );
 };
 

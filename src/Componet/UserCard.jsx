@@ -1,26 +1,25 @@
 import React from "react";
 
 const UserCard = ({ user }) => {
-    console.log(user);
     
   if (!user) return null;
     
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className="card bg-base-100 w-96 shadow-md  border-2 p-3 shadow-white hover:scale-105">
       <figure>
         <img
           src={user?.photourl || user?.photoUrl || ""}
-          alt="Shoes"
+          alt="Shoes" 
         />
       </figure>
-      <div className="card-body">
-        <h2 className="card-title">Card Title</h2>
+      <div className="card-body m-1 p-3">
+        <h2 className="card-title">{user.firstName + " " + user.lastName}</h2>
         <p>
-          A card component has a figure, a body part, and inside body there
-          are title and actions parts
+       User Skills: this is the default about of user 
         </p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+        <div className="card-actions justify-around mt-5">
+            <button className="btn btn-secondary">Ignore</button>
+          <button className="btn btn-primary">Send User</button>
         </div>
       </div>
     </div>
