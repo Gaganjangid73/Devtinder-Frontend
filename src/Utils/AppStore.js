@@ -1,16 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./UserSlice"; 
-import Feedreducer from "../Utils/feedslice";
-const AppStore = configureStore({
+import userReducer from "./userSlice";
+import feedReducer from "./feedSlice";
+import connectionReducer from "./conectionSlice";
+import requestReducer from "./requestSlice";
+
+const appStore = configureStore({
   reducer: {
     user: userReducer,
-    feed : Feedreducer,
+    feed: feedReducer,
+    connections: connectionReducer,
+    requests: requestReducer,
   },
-
 });
 
-if (process.env.NODE_ENV === "development") {
-  window.store = AppStore;
-}
-
-export default AppStore;
+export default appStore;
