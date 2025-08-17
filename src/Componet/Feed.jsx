@@ -28,7 +28,7 @@ const Feed = () => {
     (() => {
       const users = Array.isArray(feed) ? feed : feed?.data || [];
       return users.length > 0 ? (
-        <div className="flex flex-wrap gap-7 justify-center m-5">
+        <div className="flex flex-wrap gap-4 justify-center m-5">
           {users.map((u, idx) => (
             <UserCard key={u?.id || idx} user={u} />
           ))}

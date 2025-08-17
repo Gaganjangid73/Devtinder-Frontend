@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../Utils/constant";
 import { removeUser } from "../Utils/UserSlice";
+import { profile } from "./profile"
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -28,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 shadow-sm">
+    <div className="navbar bg-base-300 shadow-sm fixed z-50 top-0">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-xl">
           DevTinder 🚀
@@ -46,7 +47,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src={user.photourl}
                 />
               </div>
             </div>
@@ -57,7 +58,7 @@ const Navbar = () => {
               <li>
                 <Link to="/profile" className="justify-between">
                   Profile
-                  <span className="badge">New</span>
+                  <span className="badge">New</span> 
                 </Link>
               </li>
               <li>
